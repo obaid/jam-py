@@ -1,0 +1,26 @@
+# jam.yaml - Sample multi-agent orchestration configuration
+# 
+# This configuration defines four agents working on the demo HTML project.
+# Note: Codex, Claude Code, and OpenCode require their respective CLIs to be installed.
+# The plain_python_agent is a stub that runs without external dependencies.
+
+agents:
+  - name: codex
+    command: codex --prompt "Improve the counter button styling and add a reset button"
+    working_dir: ./demo
+    initial_prompt: "Improve the counter button styling and add a reset button"
+  
+  - name: claude
+    command: claude-code --prompt "Add CSS animations to the counter"
+    working_dir: ./demo
+    initial_prompt: "Add CSS animations to the counter"
+  
+  - name: opencode
+    command: opencode --prompt "Add dark mode toggle"
+    working_dir: ./demo
+    initial_prompt: "Add dark mode toggle"
+  
+  - name: python-agent
+    command: python ../agents/plain_python_agent.py
+    working_dir: ./demo
+    initial_prompt: "Read other agents' work and add documentation comments"
